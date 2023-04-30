@@ -64,7 +64,9 @@ class RecipeView extends View {
           </div>
           <button class="btn--round btn--bookmark">
             <svg class="">
-              <use href="${icons}#icon-bookmark${this._data.bookmarked ? '-fill' : ''}"></use>
+              <use href="${icons}#icon-bookmark${
+      this._data.bookmarked ? '-fill' : ''
+    }"></use>
             </svg>
           </button>
         </div>
@@ -109,7 +111,7 @@ class RecipeView extends View {
       <use href="${icons}#icon-check"></use>
     </svg>
     <div class="recipe__quantity">${
-      ing.quantity ? new Fraction(ing.quantity).toString() : ''
+      ing.quantity ? Fraction(ing.quantity).toString() : ''
     }</div>
     <div class="recipe__description">
       <span class="recipe__unit">${ing.unit}</span>
@@ -137,11 +139,11 @@ class RecipeView extends View {
   }
 
   addHandlerBookMark(handler) {
-    this._parentElement.addEventListener('click', function(e) {
-      const btn = e.target.closest('.btn--bookmark')
-      if(!btn) return
+    this._parentElement.addEventListener('click', function (e) {
+      const btn = e.target.closest('.btn--bookmark');
+      if (!btn) return;
       handler();
-    })
+    });
   }
 }
 
